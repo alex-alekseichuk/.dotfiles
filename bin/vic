@@ -1,0 +1,7 @@
+#!/usr/bin/bash
+read -s password
+plain=$(mktemp)
+openssl enc -aes-256-cbc -pbkdf2 -iter 100000 -pass pass:$password -d <$1 >$plain 2>/dev/null
+vi $plain
+openssl enc -aes-256-cbc -pbkdf2 -iter 100000 -pass pass:$password <$plain >$1 2>/dev/null
+rm -rf $plain
