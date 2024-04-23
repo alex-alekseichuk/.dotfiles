@@ -1,7 +1,14 @@
 #!/usr/bin/bash
+echo -n 'Password: '
 read -s password
 plain=$(mktemp)
 openssl enc -aes-256-cbc -pbkdf2 -iter 100000 -pass pass:$password -d <$1 >$plain 2>/dev/null
+prev=$(mktemp)
+cp $plain $prev
 vi $plain
-openssl enc -aes-256-cbc -pbkdf2 -iter 100000 -pass pass:$password <$plain >$1 2>/dev/null
+if ! (cmp -s $prev $plain);then
+  openssl enc -aes-256-cbc -pbkdf2 -iter 100000 -pass pass:$password <$plain >$1 2>/dev/null	
+fi
 rm -rf $plain
+rm -rf $prev
+
