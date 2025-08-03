@@ -107,5 +107,4 @@ export PATH=$PATH:~/.local/bin:~/bin
 eval "$(zoxide init zsh)"
 
 alias myip="wget -qO- http://ipecho.net/plain ; echo"
-alias dsa="docker stop $(docker ps -aq)"
 

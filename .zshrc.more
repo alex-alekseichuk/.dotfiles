@@ -167,6 +167,8 @@ export AIRFLOW_HOME=~/airflow
 
 eval "$(zoxide init zsh)"
 
+alias dsa="docker stop $(docker ps -aq)"
+
 #[[ -s "/home/alex/.gvm/scripts/gvm" ]] && source "/home/alex/.gvm/scripts/gvm"
 
 # Generated for envman. Do not edit.
