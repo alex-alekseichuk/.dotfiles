@@ -1,16 +1,22 @@
 # dotfiles
 
-Bootstrap script:
+Bootstar under root in docker container:
 
 ```bash
 cd ~
-if [ "$(id -u)" -eq 0 ]; then
-    apt update -y
-    apt install -y git
-else
-    sudo apt update -y
-    sudo apt install -y git
-fi
+apt update -y
+apt install -y git
+git clone https://github.com/alex-alekseichuk/.dotfiles.git
+chmod a+x ~/.dotfiles/install.sh
+~/.dotfiles/install.sh
+```
+
+Bootstrap in regular non-root ubuntu environment:
+
+```bash
+cd ~
+sudo apt update -y
+sudo apt install -y git
 git clone https://github.com/alex-alekseichuk/.dotfiles.git
 chmod a+x ~/.dotfiles/install.sh
 ~/.dotfiles/install.sh
