@@ -10,6 +10,7 @@ Download and run bootstrap script:
 apt update -y
 apt isntall -y wget
 wget https://alex-alekseichuk.github.io/projects/bootstrap-ubuntu.sh
+chmod a+x ./bootstrap-ubuntu.sh
 ./bootstrap-ubuntu.sh
 ```
 
