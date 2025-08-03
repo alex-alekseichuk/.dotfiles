@@ -1,10 +1,18 @@
 # dotfiles
 
-My dotfiles for linux/osx environment.
+Bootstrap debian/ubuntu terminal.
+It installs packages and dot files.
 
-## Linux Install
 
-/bin/sh ./linux_install.sh
+Download and run bootstrap script:
 
+```bash
+apt update -y
+apt isntall -y wget
+wget https://alex-alekseichuk.github.io/bootstrap-ubuntu.sh
+./bootstrap-ubuntu.sh
+```
+
+(Note or remember these)
 
 
