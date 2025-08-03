@@ -1,8 +1,16 @@
 #!/usr/bin/env bash
+
+PKGS=wget curl git tmux zoxide neovim vifm zsh ripgrep
+
+if [ "$(id -u)" -eq 0 ]; then
+    apt update -y
+    DEBIAN_FRONTEND=noninteractive apt install -y ${PKGS}
+else
+    sudo apt update -y
+    sudo DEBIAN_FRONTEND=noninteractive apt install -y ${PKGS}
+fi
+
 cd ~
-sudo apt update -y
-sudo DEBIAN_FRONTEND=noninteractive apt install -y \
-    wget curl git tmux zoxide neovim vifm zsh ripgrep
 mkdir -p ~/bin
 ln -s ~/.dotfiles/.gitconfig ~/.gitconfig
 mkdir -p ~/.config/vifm
