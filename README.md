@@ -1,19 +1,18 @@
 # dotfiles
 
-Bootstrap debian/ubuntu terminal.
-It installs packages and dot files.
-
-
-Download and run bootstrap script:
+Bootstrap script:
 
 ```bash
-apt update -y
-apt install -y wget
-wget https://alex-alekseichuk.github.io/projects/bootstrap-ubuntu.sh
-chmod a+x ./bootstrap-ubuntu.sh
-./bootstrap-ubuntu.sh
+#!/usr/bin/env bash
+cd ~
+sudo apt update -y
+sudo apt install -y git
+git clone https://github.com/alex-alekseichuk/.dotfiles.git
+chmod a+x ~/.dotfiles/install.sh
+~/.dotfiles/install.sh
 ```
 
-(Note or remember these)
+(Note or remember these line)
 
+It installs CLI tools and their configuration.
 
