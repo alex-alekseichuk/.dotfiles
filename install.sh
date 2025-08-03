@@ -1,14 +1,15 @@
 #!/usr/bin/env bash
 
-PKGS=wget curl git tmux zoxide neovim vifm zsh ripgrep
+packages=(wget curl git tmux zoxide neovim vifm zsh ripgrep)
 
 if [ "$(id -u)" -eq 0 ]; then
-    apt update -y
-    DEBIAN_FRONTEND=noninteractive apt install -y ${PKGS}
+  apt_cmd="DEBIAN_FRONTEND=noninteractive apt"
 else
-    sudo apt update -y
-    sudo DEBIAN_FRONTEND=noninteractive apt install -y ${PKGS}
+  apt_cmd="sudo DEBIAN_FRONTEND=noninteractive apt"
 fi
+
+$apt_cmd update -y
+$apt_cmd install -y "${packages[@]}"
 
 cd ~
 mkdir -p ~/bin
