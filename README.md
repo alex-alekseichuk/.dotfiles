@@ -9,7 +9,7 @@ Download and run bootstrap script:
 ```bash
 apt update -y
 apt isntall -y wget
-wget https://alex-alekseichuk.github.io/bootstrap-ubuntu.sh
+wget https://alex-alekseichuk.github.io/projects/bootstrap-ubuntu.sh
 ./bootstrap-ubuntu.sh
 ```
 
