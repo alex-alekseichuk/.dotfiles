@@ -1,11 +1,13 @@
 #!/usr/bin/env bash
 
+export DEBIAN_FRONTEND=noninteractive
+
 packages=(wget curl git tmux zoxide neovim vifm zsh ripgrep)
 
 if [ "$(id -u)" -eq 0 ]; then
-  apt_cmd="DEBIAN_FRONTEND=noninteractive apt"
+  apt_cmd=" apt"
 else
-  apt_cmd="sudo DEBIAN_FRONTEND=noninteractive apt"
+  apt_cmd="sudo apt"
 fi
 
 $apt_cmd update -y
