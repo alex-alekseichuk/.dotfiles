@@ -18,6 +18,7 @@ mkdir -p ~/bin
 ln -s ~/.dotfiles/.gitconfig ~/.gitconfig
 mkdir -p ~/.config/vifm
 ln -s ~/.dotfiles/.config/vifm/vifmrc ~/.config/vifm/vifmrc
+ln -s ~/.dotfiles/.config/kitty/kitty.conf ~/.config/kitty/kitty.conf
 ln -s ~/.dotfiles/.vimrc ~/.vimrc
 ln -s ~/.dotfiles/.tmux.conf ~/.tmux.conf
 ln -s ~/.dotfiles/.zshrc ~/.zshrc
