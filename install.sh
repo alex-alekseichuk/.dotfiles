@@ -15,12 +15,19 @@ $apt_cmd install -y "${packages[@]}"
 
 cd ~
 mkdir -p ~/bin
-ln -s ~/.dotfiles/.gitconfig ~/.gitconfig
+
+ln -s ~/.dotfiles/.vimrc ~/.vimrc
+
+mkdir -p ~/.config/nvim
+mv ~/.config/nvim/init.lua ~/.config/nvim/init.lua.bak
+ln -s ~/.dotfiles/.config/nvim/init.lua ~/.config/nvim/init.lua
+
 mkdir -p ~/.config/vifm
 ln -s ~/.dotfiles/.config/vifm/vifmrc ~/.config/vifm/vifmrc
-ln -s ~/.dotfiles/.vimrc ~/.vimrc
+
 ln -s ~/.dotfiles/.tmux.conf ~/.tmux.conf
 ln -s ~/.dotfiles/.zshrc ~/.zshrc
+ln -s ~/.dotfiles/.gitconfig ~/.gitconfig
 
 for f in ~/.dotfiles/bin/*; do ln -s $f ~/bin/$(basename $f); done
 
