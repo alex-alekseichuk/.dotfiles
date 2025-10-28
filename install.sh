@@ -25,6 +25,7 @@ ln -s ~/.dotfiles/.config/nvim/init.lua ~/.config/nvim/init.lua
 mkdir -p ~/.config/vifm
 ln -s ~/.dotfiles/.config/vifm/vifmrc ~/.config/vifm/vifmrc
 
+ln -s ~/.dotfiles/.config/kitty/kitty.conf ~/.config/kitty/kitty.conf
 ln -s ~/.dotfiles/.tmux.conf ~/.tmux.conf
 ln -s ~/.dotfiles/.zshrc ~/.zshrc
 ln -s ~/.dotfiles/.gitconfig ~/.gitconfig

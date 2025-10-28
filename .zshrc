@@ -70,7 +70,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git sudo docker)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -102,7 +102,12 @@ source $ZSH/oh-my-zsh.sh
 
 export EDITOR=nvim
 
-export PATH=$PATH:~/.local/bin:~/bin
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - bash)"
+eval "$(pyenv virtualenv-init -)"
+
+export PATH=$PATH:/usr/local/go/bin:~/bin:~/.local/bin
 
 eval "$(zoxide init zsh)"
 
