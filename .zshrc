@@ -102,14 +102,24 @@ source $ZSH/oh-my-zsh.sh
 
 export EDITOR=nvim
 
+export PATH=$PATH:~/.local/bin:~/bin
+
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init - bash)"
 eval "$(pyenv virtualenv-init -)"
 
-export PATH=$PATH:/usr/local/go/bin:~/bin:~/.local/bin
-
 eval "$(zoxide init zsh)"
 
 alias myip="wget -qO- http://ipecho.net/plain ; echo"
+
+export PATH=$PATH:/usr/local/go/bin
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
 
