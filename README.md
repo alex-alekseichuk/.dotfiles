@@ -31,6 +31,7 @@ It installs CLI tools and their configuration.
 
 https://sw.kovidgoyal.net/kitty/binary/
 
+```bash
 curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
 
 # Create symbolic links to add kitty and kitten to PATH (assuming ~/.local/bin is in
@@ -45,4 +46,5 @@ sed -i "s|Icon=kitty|Icon=$(readlink -f ~)/.local/kitty.app/share/icons/hicolor/
 sed -i "s|Exec=kitty|Exec=$(readlink -f ~)/.local/kitty.app/bin/kitty|g" ~/.local/share/applications/kitty*.desktop
 # Make xdg-terminal-exec (and hence desktop environments that support it use kitty)
 echo 'kitty.desktop' > ~/.config/xdg-terminals.list
+```
 
