@@ -104,10 +104,10 @@ export EDITOR=nvim
 
 export PATH=$PATH:~/.local/bin:~/bin
 
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init - bash)"
-eval "$(pyenv virtualenv-init -)"
+#export PYENV_ROOT="$HOME/.pyenv"
+#[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+#eval "$(pyenv init - bash)"
+#eval "$(pyenv virtualenv-init -)"
 
 eval "$(zoxide init zsh)"
 
