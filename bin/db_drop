@@ -1,0 +1,10 @@
+#!/usr/bin/bash
+
+name=$1
+admin="${PG_ADMIN_USER:-admin}"
+
+psql -h localhost -U $admin -d postgres -c "SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE datname='db_$name';"
+psql -h localhost -U $admin -d postgres -c "DROP DATABASE db_$name;"
+psql -h localhost -U $admin -d postgres -c "DROP USER ${name}_user;"
+
+

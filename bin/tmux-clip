@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+if [ -n "$KITTY_WINDOW_ID" ]; then
+  printf %s "" | kitty +kitten clipboard
+  kitty +kitten clipboard
+elif command -v wl-copy >/dev/null 2>&1; then
+  wl-copy
+elif command -v xclip >/dev/null 2>&1; then
+  xclip -selection clipboard
+fi
