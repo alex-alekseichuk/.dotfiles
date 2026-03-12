@@ -16,3 +16,6 @@ let g:netrw_liststyle = 3  " Use tree-style directory listing
 let g:netrw_browse_split = 4  " Open in a new tab
 let g:netrw_fold = 1          " Automatically fold directories
 
+set number
+set relativenumber
+
