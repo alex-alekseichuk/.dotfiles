@@ -70,7 +70,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git sudo docker)
+plugins=(git sudo docker golang kubectl nmap python)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -124,4 +124,53 @@ export NVM_DIR="$HOME/.nvm"
 source <(kubectl completion zsh)
 
 export SYNC_DIR=/home/alex/Documents
+
+
+# opencode
+export PATH=/home/alex/.opencode/bin:$PATH
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/alex/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/alex/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/alex/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/alex/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+export DENO_INSTALL="$HOME/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
+
+# alias gla='git log --date=format:"%Y-%m-%d %H:%M:%S" --pretty=format:"%C(yellow)%h%Creset %C(cyan)%ad%Creset %C(green)%an%Creset %s"'
+alias gla='git log --date=format:"%Y-%m-%d %H:%M:%S" \
+  --pretty=format:"%C(yellow)%h%Creset %C(cyan)%ad%Creset %C(green)%an%Creset %s" \
+  --invert-grep --grep="^Merge branch"'
+
+alias bat='batcat'
+alias hed='sudo wg-quick down helsinki'
+alias heu='sudo wg-quick up helsinki'
+alias co='copy'
+alias pa='pasta'
+
+export OLLAMA_FLASH_ATTENTION=1
+export OLLAMA_KV_CACHE_TYPE=q4_0
+export OLLAMA_KEEP_ALIVE=-1
+export OLLAMA_NUM_PARALLEL=1
+export OLLAMA_CONTEXT_LENGTH=65000
+
+alias k9s_homelab='KUBECONFIG=~/.kube/config-homelab k9s'
+
+eval "$(mise activate zsh)"
+
+function precmd() {
+    [[ -n "$TMUX" ]] && print -Pn "\e]2;%1~\a"
+}
+
+
 
