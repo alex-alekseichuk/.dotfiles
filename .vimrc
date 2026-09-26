@@ -19,3 +19,5 @@ let g:netrw_fold = 1          " Automatically fold directories
 set number
 set relativenumber
 
+set mouse=a " switch tabs by the mouse
+

@@ -138,7 +138,7 @@ else
     if [ -f "/home/alex/miniconda3/etc/profile.d/conda.sh" ]; then
         . "/home/alex/miniconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/home/alex/miniconda3/bin:$PATH"
+        export PATH="$PATH:/home/alex/miniconda3/bin"
     fi
 fi
 unset __conda_setup
@@ -155,6 +155,8 @@ alias gla='git log --date=format:"%Y-%m-%d %H:%M:%S" \
 alias bat='batcat'
 alias hed='sudo wg-quick down helsinki'
 alias heu='sudo wg-quick up helsinki'
+alias dud='sudo wg-quick down dubrovka'
+alias due='sudo wg-quick up dubrovka'
 alias co='copy'
 alias pa='pasta'
 
@@ -162,9 +164,18 @@ export OLLAMA_FLASH_ATTENTION=1
 export OLLAMA_KV_CACHE_TYPE=q4_0
 export OLLAMA_KEEP_ALIVE=-1
 export OLLAMA_NUM_PARALLEL=1
-export OLLAMA_CONTEXT_LENGTH=65000
+export OLLAMA_CONTEXT_LENGTH=32768
+
+#export KUBECONFIG="/home/alex/.kube/config-bb-test"
+#kubectl config set-context --current --namespace=$(
+#    kubectl get namespaces -o jsonpath='{range .items[*]}{.metadata.name}{"\n"}{end}' |
+#    grep -E '^kz-uls-[0-9]+$' |
+#    sort -t- -k3,3n |
+#    tail -n1
+#)
 
 alias k9s_homelab='KUBECONFIG=~/.kube/config-homelab k9s'
+
 
 eval "$(mise activate zsh)"
 
@@ -172,5 +183,47 @@ function precmd() {
     [[ -n "$TMUX" ]] && print -Pn "\e]2;%1~\a"
 }
 
+#export MANPAGER=most
+export LESS='-R -x4'
+export MANROFFOPT='-P -c'
+export LESS_TERMCAP_mb=$'\e[1;31m'     # blinking
+export LESS_TERMCAP_md=$'\e[1;36m'     # bold
+export LESS_TERMCAP_me=$'\e[0m'        # reset
+export LESS_TERMCAP_so=$'\e[01;44;33m' # standout
+export LESS_TERMCAP_se=$'\e[0m'
+export LESS_TERMCAP_us=$'\e[1;32m'     # underline
+export LESS_TERMCAP_ue=$'\e[0m'
 
+alias lcat="less -X -F -x4"
+
+alias summarize='fabric --pattern summarize'
+alias explain_code='fbric --pattern explain_code'
+alias improve_code='fbric --pattern improve_code'
+alias find_bug='fabric --pattern find_bug'
+# git diff | write_commit
+alias write_commit='fabric --pattern write_commit'
+# git diff origin/main | review
+alias review='fabric --pattern review'
+alias extract_wisdom='fabric --pattern extract_wisdom'
+alias extract_references='fabric --pattern extract_references'
+alias extract_main_idea='fabric --pattern extract_main_idea'
+alias translate='fabric --pattern translate'
+alias create_mermaid_diagram='fabric --pattern create_mermaid_diagram'
+alias create_summary='fabric --pattern create_summary'
+alias analyse_logs='fabric --pattern analyze_logs'
+
+source <(fzf --zsh)
+
+export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
+
+alias fd=fdfind
+
+export PATH=/usr/local/cuda/bin:$PATH
+export LD_LIBRARY_PATH=/usr/local/cuda/lib64${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}
+
+export PATH=$PATH:/home/alex/opt/llama.cpp
+
+docker-compose() {
+    UID=$(id -u) GID=$(id -g) docker compose "$@"
+}
 

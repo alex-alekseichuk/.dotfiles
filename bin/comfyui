@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+cd "$HOME/ai/ComfyUI" || exit 1
+source comfyui/bin/activate
+
+exec python main.py
+
