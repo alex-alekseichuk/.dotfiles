@@ -177,7 +177,7 @@ export OLLAMA_CONTEXT_LENGTH=32768
 alias k9s_homelab='KUBECONFIG=~/.kube/config-homelab k9s'
 
 
-eval "$(mise activate zsh)"
+#eval "$(mise activate zsh)"
 
 function precmd() {
     [[ -n "$TMUX" ]] && print -Pn "\e]2;%1~\a"
@@ -212,7 +212,7 @@ alias create_mermaid_diagram='fabric --pattern create_mermaid_diagram'
 alias create_summary='fabric --pattern create_summary'
 alias analyse_logs='fabric --pattern analyze_logs'
 
-source <(fzf --zsh)
+#source <(fzf --zsh)
 
 export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 

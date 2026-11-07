@@ -7,7 +7,7 @@ llama serve \
   --spec-type draft-dflash \
   --device-draft CUDA0 \
   --n-gpu-layers-draft all \
-  --ctx-size 131072 \
+  --ctx-size 120000 \
   --chat-template-kwargs '{"preserve_thinking":true}' \
   --jinja \
   --reasoning on \
